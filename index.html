@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Plano de Aula SENAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<h1>Gerador de Plano de Aula!</h1>
+
+<label>Nome do Curso</label>
+<select id="curso">
+<option value="">Selecione o curso</option>
+<option>Desenvolvimento de Sistemas</option>
+<option>Informática para Internet</option>
+<option>Multimídias</option>
+<option>Edificações</option>
+<option>Jogos Digitais</option>
+</select>
+
+<label>Nome da Matéria</label>
+<select id="materia">
+<option value="">Selecione o curso primeiro</option>
+</select>
+
+<label>Estilo de Aula</label>
+
+<select id="estilo1">
+<option value="">Selecione o primeiro estilo</option>
+<option>Seminário</option>
+<option>Gamificação</option>
+<option>Dinâmica</option>
+<option>Aula de Campo</option>
+<option>Escritório</option>
+<option>Kahoot</option>
+<option>Códigos</option>
+<option>Projetos</option>
+<option>Apresentação</option>
+<option>Trabalho em Grupo</option>
+<option>Slides</option>
+<option>Atividade Prática</option>
+<option>Visita Técnica</option>
+<option>Workshop</option>
+<option>Revisão</option>
+</select>
+
+<select id="estilo2">
+<option value="">Opcional</option>
+<option>Seminário</option>
+<option>Gamificação</option>
+<option>Dinâmica</option>
+<option>Aula de Campo</option>
+<option>Escritório</option>
+<option>Kahoot</option>
+<option>Códigos</option>
+<option>Projetos</option>
+<option>Apresentação</option>
+<option>Trabalho em Grupo</option>
+<option>Slides</option>
+<option>Atividade Prática</option>
+<option>Visita Técnica</option>
+<option>Workshop</option>
+<option>Revisão</option>
+</select>
+
+<select id="estilo3">
+<option value="">Opcional</option>
+<option>Seminário</option>
+<option>Gamificação</option>
+<option>Dinâmica</option>
+<option>Aula de Campo</option>
+<option>Escritório</option>
+<option>Kahoot</option>
+<option>Códigos</option>
+<option>Projetos</option>
+<option>Apresentação</option>
+<option>Trabalho em Grupo</option>
+<option>Slides</option>
+<option>Atividade Prática</option>
+<option>Visita Técnica</option>
+<option>Workshop</option>
+<option>Revisão</option>
+</select>
+
+<label>Degrau - Taxonomia de Bloom</label>
+<select id="degrau">
+<option value="">Selecione o degrau</option>
+<option>Aula Introdutória</option>
+<option>Aula Teórica</option>
+<option>Aula Prática</option>
+<option>Aula de Campo</option>
+<option>Aula de Cálculo</option>
+<option>Aula Sensibilização SAEP</option>
+</select>
+
+<label>Título da Aula</label>
+<input id="titulo">
+
+<label>Descrição da Aula</label>
+<textarea id="descricao" rows="4"></textarea>
+
+<label>Tópicos Abordados</label>
+<input id="topico1" placeholder="Tópico 1 (obrigatório)">
+<input id="topico2" placeholder="Tópico 2 (opcional)">
+<input id="topico3" placeholder="Tópico 3 (opcional)">
+<input id="topico4" placeholder="Tópico 4 (opcional)">
+<input id="topico5" placeholder="Tópico 5 (opcional)">
+
+<button onclick="gerar()">GERAR!</button>
+
+</div>
+
+<div class="right">
+<button onclick="copiar()">COPIAR</button>
+<div class="resultado" id="resultado">
+O resultado aparecerá aqui.
+</div>
+</div>
+
+</div>
+
+<!-- IMPORTAÇÃO DOS CURSOS -->
+<script src="materias/edificacoes.js"></script>
+<script src="materias/multimidias.js"></script>
+<script src="materias/desenvolvimentoSistemas.js"></script>
+<script src="materias/informaticaInternet.js"></script>
+<script src="materias/jogosDigitais.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
