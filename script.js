@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-
 document.getElementById("curso").addEventListener("change", atualizarMaterias);
-
 });
 
 function atualizarMaterias(){
@@ -31,7 +29,6 @@ selectMateria.appendChild(option);
 }
 
 
-
 function gerar()
 {
 
@@ -53,7 +50,6 @@ let topico5 = document.getElementById("topico5").value;
 
 
 // VALIDAÇÃO
-
 if(materia == "" || titulo == "" || estilo1 == "")
 {
 alert("Preencha matéria, título e pelo menos um estilo.");
@@ -61,63 +57,80 @@ return;
 }
 
 
-// MONTAR ESTILOS
-
+// ESTILOS
 let estilos = [];
-
-if(estilo1 != "") estilos.push(estilo1);
-if(estilo2 != "") estilos.push(estilo2);
-if(estilo3 != "") estilos.push(estilo3);
+if(estilo1) estilos.push(estilo1);
+if(estilo2) estilos.push(estilo2);
+if(estilo3) estilos.push(estilo3);
 
 let estiloTexto = estilos.join(", ");
 
 
-// MONTAR TÓPICOS
-
+// TÓPICOS
 let topicos = [];
+if(topico1) topicos.push(topico1);
+if(topico2) topicos.push(topico2);
+if(topico3) topicos.push(topico3);
+if(topico4) topicos.push(topico4);
+if(topico5) topicos.push(topico5);
 
-if(topico1 != "") topicos.push("• " + topico1);
-if(topico2 != "") topicos.push("• " + topico2);
-if(topico3 != "") topicos.push("• " + topico3);
-if(topico4 != "") topicos.push("• " + topico4);
-if(topico5 != "") topicos.push("• " + topico5);
-
-let topicosFormatados = topicos.join("\n");
+let listaTopicosHTML = topicos.map(t => `<li>${t}</li>`).join("");
 
 
-// TEXTO INSTITUCIONAL COMPLETO
-
-let textoFinal =
-
-"TÍTULO\n\n" + titulo +
-
-"\n\nDEGRAU (TAXONOMIA DE BLOOM)\n\n" + degrau +
-
-"\n\nDESCRIÇÃO INICIAL\n\n" +
-(descricao != "" 
+// DESCRIÇÃO
+let descricaoFinal = descricao != "" 
 ? descricao 
-: "A aula abordará o tema " + titulo + " na matéria " + materia + " do curso técnico em " + curso + ", utilizando a metodologia de " + estiloTexto + ", com foco no desenvolvimento das competências técnicas e comportamentais exigidas pelo contexto industrial e pelo mercado de trabalho contemporâneo. O conteúdo será contextualizado com situações reais da prática profissional, promovendo a integração entre teoria e aplicação técnica."
-) +
-
-"\n\nTÓPICOS ABORDADOS\n\n" + topicosFormatados +
-
-"\n\nESTRATÉGIA\n\n" +
-"A aula será conduzida utilizando os formatos de " + estiloTexto + ", permitindo que os técnicos acompanhem o desenvolvimento do conteúdo de forma estruturada, com explicação detalhada, demonstração prática e aplicação orientada conforme os parâmetros técnicos da matéria " + materia + ". A metodologia adotada visa estimular o raciocínio técnico, a autonomia profissional e a capacidade de resolução de problemas dentro do contexto produtivo." +
-
-"\n\nRECURSOS E AMBIENTE\n\n" +
-"Será utilizado ambiente adequado à execução da aula, contemplando infraestrutura compatível com a natureza da disciplina, tais como computadores, projetor multimídia, softwares específicos, ferramentas técnicas e demais recursos necessários para garantir a correta apresentação e execução das atividades relacionadas ao tema " + titulo + ". O espaço será organizado de modo a favorecer a participação ativa e a interação entre os técnicos." +
-
-"\n\nATIVIDADE\n\n" +
-"Os técnicos participarão da aula aplicando os conhecimentos apresentados por meio das metodologias " + estiloTexto + ", executando atividades relacionadas aos tópicos desenvolvidos, analisando situações práticas e realizando procedimentos técnicos compatíveis com as exigências do curso " + curso + ". A atividade buscará consolidar a aprendizagem por meio da prática orientada e da contextualização profissional." +
-
-"\n\nAVALIAÇÃO\n\n" +
-"Não haverá avaliação nesta aula." +
-
-"\n\nRESULTADO ESPERADO\n\n" +
-"Ao final da aula, o técnico deverá ter compreendido o conteúdo " + titulo + " e sua aplicação na matéria " + materia + ", sendo capaz de reconhecer, analisar e aplicar os conceitos desenvolvidos dentro do contexto técnico do curso " + curso + ", demonstrando domínio progressivo das competências previstas no planejamento pedagógico.";
+: `A aula abordou o tema <b>${titulo}</b> na disciplina <b>${materia}</b>, do curso técnico em <b>${curso}</b>, utilizando metodologias como <b>${estiloTexto}</b>, com foco na aplicação prática dos conceitos e no desenvolvimento das competências técnicas.`;
 
 
-document.getElementById("resultado").innerText = textoFinal;
+// HTML FINAL
+let html = `
+
+<div class="bloco titulo">
+<h2>${titulo}</h2>
+<p class="degrau"><b>Degrau (Taxonomia de Bloom):</b> ${degrau}</p>
+</div>
+
+<div class="bloco">
+<h3>Breve descrição do que foi aplicado no dia</h3>
+<p>${descricaoFinal}</p>
+</div>
+
+<div class="bloco">
+<h3>Capacidades</h3>
+<p>Compreender, analisar e aplicar os conceitos relacionados ao tema, desenvolvendo raciocínio técnico, autonomia profissional e capacidade de resolução de problemas.</p>
+</div>
+
+<div class="bloco">
+<h3>Conhecimentos</h3>
+<ul>
+${listaTopicosHTML}
+</ul>
+</div>
+
+<div class="bloco">
+<h3>Estratégia</h3>
+<p>A aula foi conduzida utilizando <b>${estiloTexto}</b>, com abordagem progressiva entre teoria e prática, incentivando participação ativa e pensamento crítico.</p>
+</div>
+
+<div class="bloco">
+<h3>Recursos e Ambientes</h3>
+<p>Ambiente equipado com projetor, computadores, softwares técnicos e recursos didáticos adequados à disciplina <b>${materia}</b>.</p>
+</div>
+
+<div class="bloco">
+<h3>Atividades</h3>
+<p>Aplicação prática dos conteúdos por meio de exercícios, análise de casos e execução de tarefas relacionadas ao contexto profissional.</p>
+</div>
+
+<div class="bloco">
+<h3>Avaliação</h3>
+<p>Não houve avaliação formal nesta aula.</p>
+</div>
+
+`;
+
+document.getElementById("resultado").innerHTML = html;
 
 }
 
