@@ -80,15 +80,15 @@ let listaTopicosHTML = topicos.map(t => `<li>${t}</li>`).join("");
 // DESCRIÇÃO
 let descricaoFinal = descricao != "" 
 ? descricao 
-: `A aula abordou o tema <b>${titulo}</b> na disciplina <b>${materia}</b>, do curso técnico em <b>${curso}</b>, utilizando metodologias como <b>${estiloTexto}</b>, com foco na aplicação prática dos conceitos e no desenvolvimento das competências técnicas.`;
+: `A aula abordou o tema <b>${titulo}</b> na disciplina <b>${materia}</b>, do curso técnico em <b>${curso}</b>, utilizando metodologias como <b>${estiloTexto}</b>.`;
 
 
-// HTML FINAL
+// HTML VISUAL
 let html = `
 
-<div class="bloco titulo">
+<div class="bloco">
 <h2>${titulo}</h2>
-<p class="degrau"><b>Degrau (Taxonomia de Bloom):</b> ${degrau}</p>
+<p><b>Degrau:</b> ${degrau}</p>
 </div>
 
 <div class="bloco">
@@ -97,34 +97,22 @@ let html = `
 </div>
 
 <div class="bloco">
-<h3>Capacidades</h3>
-<p>Compreender, analisar e aplicar os conceitos relacionados ao tema, desenvolvendo raciocínio técnico, autonomia profissional e capacidade de resolução de problemas.</p>
-</div>
+<p><b>- Capacidades</b></p>
+<p>Desenvolver raciocínio técnico e aplicação prática dos conceitos.</p>
 
-<div class="bloco">
-<h3>Conhecimentos</h3>
-<ul>
-${listaTopicosHTML}
-</ul>
-</div>
+<p><b>- Conhecimentos</b></p>
+<ul>${listaTopicosHTML}</ul>
 
-<div class="bloco">
-<h3>Estratégia</h3>
-<p>A aula foi conduzida utilizando <b>${estiloTexto}</b>, com abordagem progressiva entre teoria e prática, incentivando participação ativa e pensamento crítico.</p>
-</div>
+<p><b>- Estratégia</b></p>
+<p>Aula conduzida com ${estiloTexto}, integrando teoria e prática.</p>
 
-<div class="bloco">
-<h3>Recursos e Ambientes</h3>
-<p>Ambiente equipado com projetor, computadores, softwares técnicos e recursos didáticos adequados à disciplina <b>${materia}</b>.</p>
-</div>
+<p><b>- Recursos e Ambientes</b></p>
+<p>Laboratório, projetor, softwares e ambiente técnico adequado.</p>
 
-<div class="bloco">
-<h3>Atividades</h3>
-<p>Aplicação prática dos conteúdos por meio de exercícios, análise de casos e execução de tarefas relacionadas ao contexto profissional.</p>
-</div>
+<p><b>- Atividades</b></p>
+<p>Execução de exercícios práticos e análise de situações reais.</p>
 
-<div class="bloco">
-<h3>Avaliação</h3>
+<p><b>- Avaliação</b></p>
 <p>Não houve avaliação formal nesta aula.</p>
 </div>
 
@@ -135,9 +123,19 @@ document.getElementById("resultado").innerHTML = html;
 }
 
 
+// 🔥 COPIAR COM NEGRITO REAL
+function copiar() {
+let el = document.getElementById("resultado");
 
-function copiar()
-{
-let texto = document.getElementById("resultado").innerText;
-navigator.clipboard.writeText(texto);
+let html = el.innerHTML;
+let text = el.innerText;
+
+navigator.clipboard.write([
+new ClipboardItem({
+"text/html": new Blob([html], { type: "text/html" }),
+"text/plain": new Blob([text], { type: "text/plain" })
+})
+]);
+
+alert("Copiado com formatação!");
 }
