@@ -1,6 +1,6 @@
+@@ -0,0 +1,161 @@
 /* ============================= */
 /* RESET */
-/* NOVA FORMATAÇÃO PROFISSIONAL */
 /* ============================= */
 
 * {
@@ -8,8 +8,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Segoe UI", Arial, sans-serif;
-.bloco {
-    margin-bottom: 25px;
 }
 
 /* ============================= */
@@ -40,21 +38,15 @@ body {
     padding: 40px;
     border-right: 4px solid #0033a0;
     box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-.bloco.titulo {
-    border-bottom: 2px solid #0033a0;
-    padding-bottom: 10px;
 }
 
 .left h1 {
     font-size: 24px;
     margin-bottom: 30px;
-.bloco h2 {
-    font-size: 22px;
     color: #0033a0;
     font-weight: 700;
     border-bottom: 3px solid #0033a0;
     padding-bottom: 10px;
-    margin-bottom: 8px;
 }
 
 /* ============================= */
@@ -67,12 +59,7 @@ label {
     margin-bottom: 6px;
     font-weight: 600;
     font-size: 14px;
-.bloco h3 {
-    font-size: 16px;
     color: #0033a0;
-    margin-bottom: 8px;
-    border-left: 4px solid #0033a0;
-    padding-left: 8px;
 }
 
 /* ============================= */
@@ -86,7 +73,6 @@ textarea {
     padding: 10px 12px;
     border: 1px solid #cfd6e4;
     border-radius: 6px;
-.bloco p {
     font-size: 14px;
     background-color: #f9fbff;
     transition: 0.2s ease-in-out;
@@ -156,7 +142,6 @@ button:active {
     line-height: 1.6;
     font-size: 14px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    color: #333;
 }
 
 /* ============================= */
@@ -165,22 +150,13 @@ button:active {
 
 ::-webkit-scrollbar {
     width: 8px;
-.bloco ul {
-    padding-left: 20px;
-    margin-top: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #0033a0;
     border-radius: 10px;
-.bloco li {
-    margin-bottom: 6px;
 }
 
 ::-webkit-scrollbar-track {
     background-color: #e1e6f0;
-}
-.degrau {
-    font-size: 13px;
-    color: #666;
 }
